@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图-自适应</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul,li {
+			list-style: none;
+		}
+
+		.slideBox {
+			width: 30%;
+			margin: 100px auto;
+			border: 1px solid red;
+			position: relative;
+			overflow: hidden;
+		}
+		.slideBox .slidePoint{}
+		.slideBox .slidePoint ul {
+			position: absolute;
+			overflow: hidden;
+			right: 20px;
+			bottom: 20px;
+		}
+		.slideBox .slidePoint ul li {
+			float: left;
+	    width: 20px;
+	    height: 20px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    margin-left: 10px;
+	    cursor: pointer;
+	    text-align: center;
+		}
+		.slideBox .slidePoint ul li.active {
+			background-color: red;
+		}
+		.slideBox .prev, .slideBox .next {
+			position: absolute;
+			width: 40px;
+			height: 60px;
+			background-color: rgba(0,0,0,.2);
+			top: 50%;
+			margin-top: -30px;
+			line-height: 60px;
+			text-align: center;
+			font-size: 20px;
+			color: #fff;
+			font-weight: 700;
+			text-decoration: none;
+			display: none;
+		}
+		.slideBox .prev{
+			left: 0px;
+		}
+		.slideBox .next{
+			right: 0px;
+		}
+		.slideBox:hover .prev,.slideBox:hover .next{
+			display: block;
+		}
+		.slideBox .slideText{}
+	</style>
+</head>
+<body>
+	<div class="slideBox">
+		<div class="slideImg">
+			<ul>
+				<li><a href="javascript:;"><img src="http://www.superslide2.com/demo/images/pic2.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="http://www.superslide2.com/demo/images/pic2.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="http://www.superslide2.com/demo/images/pic2.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="http://www.superslide2.com/demo/images/pic2.jpg" alt=""></a></li>
+				<li><a href="javascript:;"><img src="http://www.superslide2.com/demo/images/pic2.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div class="slidePoint">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+		<a href="javascript:void(0);" class="prev"><</a>
+		<a href="javascript:void(0);" class="next">></a>
+	</div>
+
+
+	<script src="slide.js"></script>
+	<script>
+		var slide = new Slide()
+		slide.init({
+			 box:　'.slideBox' 
+			,WHAuto: true // 是否宽高自适应
+			,delayTime: 500 // 动画完成耗费时间
+			,autoPlay: true // 自动轮播
+			,trigger: 'mouseover' // 触发事件
+			,mouseOverStop: true // 鼠标悬停时暂停播放
+			,innerTime: 2500 // 间隔时间
+		})
+	</script>
+</body>
+</html>
